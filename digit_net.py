@@ -31,15 +31,11 @@ class NeuralNet:
         self.hidden_size = hidden_size
         self.output_size = output_size
         
-        # 1 input = 1 weight
-        
-        # Input Layer (784 neurons)
+        # Input Layer (784 inputs)
         #     ↓
         # Hidden Layer (128 neurons)
         #     ↓
         # Output Layer (10 neurons)
-
-        
 
         self.hidden_weights = [generate_weights(input_size) for _ in range(hidden_size)]
         self.hidden_biases = [random.uniform(-0.5, 0.5) for _ in range(hidden_size)]
@@ -212,13 +208,11 @@ def ensure_model_trained():
 
 #train_model()
 
-
 ensure_model_trained()
 
 X, y = load_data('mnist_784.csv')
 X_train, X_test, y_train, y_test = split_data(X, y)
 print(f"Train size: {len(X_train)}, Test size: {len(X_test)}")
-
 
 correct = 0
 total = 0
